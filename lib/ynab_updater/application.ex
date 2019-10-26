@@ -5,6 +5,7 @@ defmodule YnabUpdater.Application do
 
   def start(_type, _args) do
     tasks = [
+      %YnabUpdater.DummyTask{name: "slow"},
       YnabUpdater.Tasks.SyncTrackingBudget.new(
         Application.get_env(:ynab_updater, :api_key),
         Application.get_env(:ynab_updater, :main_budget),
